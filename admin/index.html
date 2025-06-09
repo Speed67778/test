@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../asset/favicon.ico">
+    <title>Trang Quản Trị - Website Tin Tức Giới Trẻ</title>
+   </head> 
+ 
+ 
+</head>
+<body>
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="admin-logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMjU2M2ViIi8+Cjx0ZXh0IHg9IjIwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9nbzwvdGV4dD4KPHN2Zz4=" alt="Logo">
+            <span class="admin-title">Quản Trị Tin Tức</span>
+        </div>
+        <div class="admin-user">
+            <span>Xin chào, Admin</span>
+            <a href="#" class="logout-btn" onclick="logout()">Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" onclick="showSection('dashboard')">Tổng quan</a></li>
+                <li><a href="#" onclick="showSection('posts')">Quản lý bài viết</a></li>
+                <li><a href="#" onclick="showSection('categories')">Danh mục</a></li>
+                <li><a href="#" onclick="showSection('albums')">Album ảnh</a></li>
+                <li><a href="#" onclick="showSection('users')">Người dùng</a></li>
+                <li><a href="#" onclick="showSection('comments')">Bình luận</a></li>
+                <li><a href="#" onclick="showSection('settings')">Cài đặt</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section">
+                    <div class="content-header">
+                        <h1 class="content-title">Tổng quan hệ thống</h1>
+                        <p class="content-subtitle">Thống kê tổng quan website tin tức giới trẻ</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">55</div>
+                            <div class="stat-label">Tổng bài viết</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Danh mục</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">48</div>
+                            <div class="stat-label">Album ảnh</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">123,777</div>
+                            <div class="stat-label">Lượt xem hôm nay</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h2 class="section-title">Thao tác nhanh</h2>
+                        <div class="action-buttons">
+                            <a href="#" class="action-btn" onclick="showAddForm('post')">Thêm bài viết mới</a>
+                            <a href="#" class="action-btn" onclick="showAddForm('category')">Thêm danh mục</a>
+                            <a href="../index.html" class="action-btn secondary">Xem website</a>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h2 class="section-title">Hoạt động gần đây</h2>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-time">35 phút trước</div>
+                                <div class="activity-text">Đã thêm bài viết: "Xu hướng thời trang giới trẻ 2025"</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-time">55 phút trước</div>
+                                <div class="activity-text">Đã cập nhật danh mục: "Công nghệ"</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-time">11 giờ trước</div>
+                                <div class="activity-text">Đã duyệt 5 bình luận mới</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-time">12 giờ trước</div>
+                                <div class="activity-text">Đã tạo album ảnh: "Sự kiện âm nhạc tháng 5"</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other sections will be shown/hidden by JavaScript -->
+                <div id="posts-section" style="display: none;">
+                    <div class="content-header">
+                        <h1 class="content-title">Quản lý bài viết</h1>
+                        <p class="content-subtitle">Thêm, sửa, xóa các bài viết trên website</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showAddForm('post')">Thêm bài viết mới</button>
+                        <button class="action-btn secondary">Xuất danh sách</button>
+                    </div>
+                    <p style="margin-top: 20px; color: #6b7280;">Danh sách bài viết sẽ được hiển thị ở đây...</p>
+                </div>
+
+                <div id="categories-section" style="display: none;">
+                    <div class="content-header">
+                        <h1 class="content-title">Quản lý danh mục</h1>
+                        <p class="content-subtitle">Quản lý các danh mục tin tức</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showAddForm('category')">Thêm danh mục mới</button>
+                    </div>
+                    <table class="categories-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên danh mục</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="categories-list">
+            <!-- Danh sách danh mục sẽ được thêm động -->
+        </tbody>
+    </table>
+                </div>
+
+                <div id="albums-section" style="display: none;">
+                    <div class="content-header">
+                        <h1 class="content-title">Quản lý Album ảnh</h1>
+                        <p class="content-subtitle">Tạo và quản lý các album ảnh</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showAddPhotoForm()">Thêm album ảnh</button>
+                    </div>
+                    <div class="photos-grid" id="photos-grid">
+        <!-- Danh sách ảnh sẽ được hiển thị động -->
+    </div>
+                </div>
+
+                <div id="users-section" style="display: none;">
+                    <div class="content-header">
+                        <h1 class="content-title">Quản lý người dùng</h1>
+                        <p class="content-subtitle">Quản lý tài khoản người dùng</p>
+                    </div>
+                    <p style="color: #6b7280;">Danh sách người dùng sẽ được hiển thị ở đây... đi hỏi thằng speed nó làm thêm đi</p>
+                </div>
+
+                <div id="comments-section" style="display: none;">
+                    <div class="content-header">
+                        <h1 class="content-title">Quản lý bình luận</h1>
+                        <p class="content-subtitle">Duyệt và quản lý bình luận</p>
+                    </div>
+                    <p style="color: #6b7280;">Danh sách bình luận sẽ được hiển thị ở đây... đi hỏi thằng speed nó làm thêm đi</p>
+                </div>
+
+                <div id="settings-section" style="display: none;">
+                    <div class="content-header">
+                        <h1 class="content-title">Cài đặt hệ thống</h1>
+                        <p class="content-subtitle">Cấu hình website</p>
+                    </div>
+                    <p style="color: #6b7280;">Các tùy chọn cài đặt sẽ được hiển thị ở đây... đi hỏi thằng speed nó làm thêm đi</p>
+                </div>
+
+                <div id="add-category-form" style="display: none;">
+    <h2>Thêm nội dung mới</h2>
+    <form onsubmit="addCategory(event)">
+        <label for="category-name">Tên nội dung:</label>
+        <input type="text" id="category-name" required>
+        <button type="submit" class="action-btn">Thêm</button>
+        <button type="button" class="action-btn secondary" onclick="hideAddForm()">Hủy</button>
+    </form>
+</div>
+
+<div id="add-photo-form" style="display: none;">
+    <h2>Thêm ảnh mới</h2>
+    <form onsubmit="addPhoto(event)">
+        <label for="photo-title">Tiêu đề ảnh:</label>
+        <input type="text" id="photo-title" required>
+        
+        <label for="photo-file">Chọn ảnh:</label>
+        <input type="file" id="photo-file" accept="image/*" required>
+        
+        <button type="submit" class="action-btn">Thêm</button>
+        <button type="button" class="action-btn secondary" onclick="hideAddPhotoForm()">Hủy</button>
+    </form>
+</div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    // Chức năng điều hướng
+function showSection(sectionName) {
+    if (!isLoggedIn) {
+        alert('Bạn cần đăng nhập để truy cập chức năng này!');
+        return;
+    }
+    
+    // Ẩn tất cả các phần
+    const sections = ['dashboard', 'posts', 'categories', 'albums', 'users', 'comments', 'settings'];
+    sections.forEach(section => {
+        const element = document.getElementById(section + '-section');
+        if (element) {
+            element.style.display = 'none';
+        }
+    });
+
+    // Hiển thị phần được chọn
+    const targetSection = document.getElementById(sectionName + '-section');
+    if (targetSection) {
+        targetSection.style.display = 'block';
+    }
+
+    // Cập nhật mục menu đang hoạt động
+    const menuLinks = document.querySelectorAll('.sidebar-menu a');
+    menuLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    event.target.classList.add('active');
+}
+
+// Chức năng của biểu mẫu
+function showAddForm(type) {
+    if (!isLoggedIn) {
+        alert('Bạn cần đăng nhập để thực hiện chức năng này!');
+        return;
+    }
+    
+    let message = '';
+    switch(type) {
+        case 'post':
+            message = 'Chức năng thêm bài viết sẽ được triển khai';
+            break;
+        case 'category':
+            message = 'Chức năng thêm danh mục sẽ được triển khai';
+            document.getElementById('add-category-form').style.display = 'block';
+            break;
+        case 'album':
+            message = 'Chức năng tạo album ảnh sẽ được triển khai';
+            break;
+        default:
+            message = 'Chức năng đang được phát triển';
+    }
+    alert(message);
+}
+
+// Ẩn biểu mẫu thêm danh mục
+function hideAddForm() {
+    document.getElementById('add-category-form').style.display = 'none';
+}
+
+// Ẩn biểu mẫu thêm ảnh
+function hideAddPhotoForm() {
+    document.getElementById('add-photo-form').style.display = 'none';
+}
+
+// Quản lý trạng thái đăng nhập
+let isLoggedIn = true;
+
+// Chức năng đăng xuất
+function logout() {
+    if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+        isLoggedIn = false;
+        updateHeaderUser();
+        showLoginMessage();
+        alert('Đã đăng xuất thành công!');
+    }
+}
+
+// Chức năng đăng nhập
+function login() {
+    // Chuyển hướng tới trang đăng nhập của bạn
+    window.location.href = 'login.html'; // Thay 'login.html' bằng đường dẫn form đăng nhập của bạn
+}
+
+// Cập nhật phần người dùng trên tiêu đề
+function updateHeaderUser() {
+    const userSection = document.querySelector('.admin-user');
+    if (isLoggedIn) {
+        userSection.innerHTML = `
+            <span>Xin chào, Admin</span>
+            <a href="#" class="logout-btn" onclick="logout()">Đăng xuất</a>
+        `;
+    } else {
+        userSection.innerHTML = `
+            <a href="#" class="logout-btn" onclick="login()" style="background-color: #16a34a;">Đăng nhập</a>
+        `;
+    }
+}
+
+// Hiển thị thông báo đăng nhập
+function showLoginMessage() {
+    const mainContent = document.querySelector('.admin-content');
+    mainContent.innerHTML = `
+        <div style="text-align: center; padding: 50px;">
+            <h2 style="color: #6b7280; margin-bottom: 20px;">Bạn cần đăng nhập để truy cập trang quản trị</h2>
+            <button class="action-btn" onclick="login()">Đăng nhập ngay</button>
+        </div>
+    `;
+}
+
+// Ẩn thông báo đăng nhập và khôi phục bảng điều khiển
+function hideLoginMessage() {
+    location.reload(); // Tải lại trang để khôi phục nội dung ban đầu
+}
+
+// Quản lý danh mục
+let categories = [
+    { id: 1, name: 'Công nghệ' },
+    { id: 2, name: 'Thời trang' },
+    { id: 3, name: 'Du lịch' }
+];
+
+// Hiển thị danh sách danh mục
+function renderCategories() {
+    const categoriesList = document.getElementById('categories-list');
+    categoriesList.innerHTML = '';
+    categories.forEach(category => {
+        categoriesList.innerHTML += `
+            <tr>
+                <td>${category.id}</td>
+                <td>${category.name}</td>
+                <td>
+                    <button onclick="editCategory(${category.id})">Sửa</button>
+                    <button onclick="deleteCategory(${category.id})">Xóa</button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+// Thêm danh mục mới
+function addCategory(event) {
+    event.preventDefault();
+    const categoryName = document.getElementById('category-name').value;
+    const newCategory = {
+        id: categories.length + 1,
+        name: categoryName
+    };
+    categories.push(newCategory);
+    renderCategories();
+    hideAddForm();
+}
+
+// Sửa danh mục
+function editCategory(id) {
+    const category = categories.find(cat => cat.id === id);
+    const newName = prompt('Nhập tên mới cho danh mục:', category.name);
+    if (newName) {
+        category.name = newName;
+        renderCategories();
+    }
+}
+
+// Xóa danh mục
+function deleteCategory(id) {
+    if (confirm('Bạn có chắc chắn muốn xóa danh mục này?')) {
+        categories = categories.filter(cat => cat.id !== id);
+        renderCategories();
+    }
+}
+
+// Hiển thị biểu mẫu thêm danh mục
+function showAddForm() {
+    document.getElementById('add-category-form').style.display = 'block';
+}
+
+// Ẩn biểu mẫu thêm danh mục
+function hideAddForm() {
+    document.getElementById('add-category-form').style.display = 'none';
+}
+
+// Khởi tạo danh sách danh mục khi tải trang
+document.addEventListener('DOMContentLoaded', function() {
+    renderCategories();
+});
+
+// Quản lý ảnh
+let photos = [];
+
+// Hiển thị danh sách ảnh
+function renderPhotos() {
+    const photosGrid = document.getElementById('photos-grid');
+    photosGrid.innerHTML = '';
+    photos.forEach((photo, index) => {
+        photosGrid.innerHTML += `
+            <div class="photo-item">
+                <img src="${photo.url}" alt="${photo.title}" style="width: 100px; height: 100px;">
+                <p>${photo.title}</p>
+                <button class="action-btn secondary" onclick="deletePhoto(${index})">Xóa</button>
+            </div>
+        `;
+    });
+}
+
+// Thêm ảnh mới
+function addPhoto(event) {
+    event.preventDefault();
+    const photoTitle = document.getElementById('photo-title').value;
+    const photoFile = document.getElementById('photo-file').files[0];
+    
+    if (photoFile) {
+        const photoUrl = URL.createObjectURL(photoFile);
+        const newPhoto = { title: photoTitle, url: photoUrl };
+        photos.push(newPhoto);
+        renderPhotos();
+        hideAddPhotoForm();
+    } else {
+        alert('Vui lòng chọn một ảnh!');
+    }
+}
+
+// Xóa ảnh
+function deletePhoto(index) {
+    if (confirm('Bạn có chắc chắn muốn xóa ảnh này?')) {
+        photos.splice(index, 1);
+        renderPhotos();
+    }
+}
+
+// Hiển thị biểu mẫu thêm ảnh
+function showAddPhotoForm() {
+    document.getElementById('add-photo-form').style.display = 'block';
+}
+
+// Ẩn biểu mẫu thêm ảnh
+function hideAddPhotoForm() {
+    document.getElementById('add-photo-form').style.display = 'none';
+}
+
+// Khởi tạo danh sách ảnh khi tải trang
+document.addEventListener('DOMContentLoaded', function() {
+    renderPhotos();
+});
+
+        // Khởi tạo trang
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Trang quản trị đã tải thành công');
+        });
+    </script>
+</body>
+</html>

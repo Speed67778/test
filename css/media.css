@@ -1,0 +1,395 @@
+/* Mobile devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+    .header-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .nav-menu li {
+        margin: 5px 0;
+    }
+
+    .nav-menu a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        padding-top: 180px;
+    }
+
+    .featured-news {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-list-item {
+        flex-direction: column;
+    }
+
+    .news-list-image img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tablets (portrait tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+    .featured-news {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .news-list-item {
+        padding: 10px;
+    }
+
+    .news-list-image img {
+        width: 100px;
+        height: 70px;
+    }
+}
+
+/* Small laptops (992px and down) */
+@media only screen and (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .featured-section,
+    .categories-section,
+    .latest-section {
+        padding: 20px;
+    }
+
+    .news-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Large devices (desktops, 1200px and down) */
+@media only screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Extra large devices (large desktops, 1400px and down) */
+@media only screen and (max-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (max-width: 400px) {
+    .header-container {
+        padding: 50px;
+    }
+
+    .logo {
+        margin-bottom: 5px;
+    }
+
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        gap: 2px;
+    }
+
+    .nav-menu a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    body {
+        padding-top: 160px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .breadcrumb {
+        height: 150px;
+        margin: 30px auto;
+    }
+
+    .breadcrumb h1 {
+        font-size: 1.5rem;
+    }
+
+    .breadcrumb p {
+        font-size: 0.9rem;
+    }
+
+    .filter-title {
+        font-size: 1.1rem;
+    }
+
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .album-item {
+        margin-bottom: 15px;
+    }
+
+    .album-title {
+        font-size: 1rem;
+    }
+
+    .album-description {
+        font-size: 0.8rem;
+    }
+
+    .album-meta {
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .footer,
+    .nav-menu {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .news-item,
+    .news-list-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* iPhone 6/7/8 and similar devices */
+@media only screen and (max-width: 375px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+
+    .header.hide {
+        transform: translateY(-100%);
+    }
+
+    .header.show {
+        transform: translateY(0);
+    }
+
+    .header-container {
+        padding: 10px;
+        position: relative;
+    }
+
+    .logo {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .logo img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #2c5aa0, #1e4080);
+        padding: 10px;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu a {
+        color: white;
+        background: transparent;
+        border: none;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(255,255,255,0.1);
+        color: white;
+        border: none;
+    }
+
+    /* Menu toggle button */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .breadcrumb {
+        height: 120px;
+        margin: 20px auto;
+    }
+
+    .breadcrumb h1 {
+        font-size: 1.3rem;
+    }
+
+    .breadcrumb p {
+        font-size: 0.8rem;
+    }
+
+    .filter-title {
+        font-size: 1rem;
+    }
+
+    .filter-buttons {
+        gap: 5px;
+    }
+
+    .filter-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .album-item {
+        margin-bottom: 10px;
+    }
+
+    .album-title {
+        font-size: 0.9rem;
+    }
+
+    .album-description {
+        font-size: 0.75rem;
+    }
+
+    .album-meta {
+        font-size: 0.7rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* iPhone 5/SE and smaller devices */
+@media only screen and (max-width: 320px) {
+    .header-container {
+        padding: 8px;
+    }
+
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .nav-menu a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    body {
+        padding-top: 50px;
+    }
+
+    .breadcrumb {
+        height: 100px;
+        margin: 15px auto;
+    }
+
+    .breadcrumb h1 {
+        font-size: 1.1rem;
+    }
+
+    .breadcrumb p {
+        font-size: 0.75rem;
+    }
+} 
