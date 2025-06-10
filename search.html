@@ -287,280 +287,314 @@
     </footer>
 
     <script>
-        // Dữ liệu mẫu cho tìm kiếm
-        const sampleData = [
-            {
-                id: 1,
-                title: "Xu hướng thời trang mùa hè 2025 cho giới trẻ",
-                summary: "Khám phá những xu hướng thời trang hot nhất dành cho giới trẻ trong mùa hè năm nay...",
-                category: "thoi-trang",
-                author: "Nguyễn Đức Anh",
-                date: "2025-05-29"
-            },
-            {
-                id: 2,
-                title: "Top 10 địa điểm du lịch hot nhất cho gen Z",
-                summary: "Những điểm đến được giới trẻ yêu thích nhất trong năm 2025...",
-                category: "du-lich",
-                author: "Đỗ Đức Duy",
-                date: "2025-05-20"
-            },
-            {
-                id: 3,
-                title: "Xu hướng công nghệ mới nhất trong giới trẻ",
-                summary: "Khám phá những công nghệ đang được giới trẻ quan tâm và ứng dụng trong cuộc sống hàng ngày...",
-                category: "cong-nghe",
-                author: "Phạm Gia Khiêm",
-                date: "2025-05-17"
-            },
-            {
-                id: 4,
-                title: "Jack97 sau 2 năm im lặng bất ngờ có động thái nổi bật",
-                summary: "Tổng hợp những thông tin đính chính từ phía J97 về các vấn đề được dư luận quan tâm...",
-                category: "tin-nong",
-                author: "Nguyễn Minh Tuấn",
-                date: "2025-05-23"
-            },
-            {
-                id: 5,
-                title: "Nguyễn Nam Long",
-                summary: " Khám phá câu chuyện về cậu bé Nguyễn Nam Long - thần đồng 12 tuổi với những thành tích đáng kinh ngạc trong lĩnh vực toán học và lập trình.",
-                category: "cong-nghe",
-                author: "Trần Văn Hùng",
-                date: "2025-05-25"
-            },
-            {
-                id: 6,
-                title: "Thể thao điện tử: Xu hướng mới của giới trẻ",
-                summary: "Thể thao điện tử đang trở thành một phần không thể thiếu trong đời sống của giới trẻ...",
-                category: "the-thao",
-                author: "Nguyễn Văn Nam",
-                date: "2025-05-30"
-            },
-            {
-                id: 7,
-                title: "Ronaldo lập kỷ lục mới, Bồ Đào Nha vô địch Nations League 2025",
-                summary: "Trận chiến Bồ Đào Nha đấu Tây Ban Nha, với tâm điểm là 'ông già gân' Cristiano Ronaldo 40 tuổi và măng non Lamine Yamal 17 tuổi, đã ngã ngũ, với thông điệp đanh thép từ đội trưởng số 7 huyền thoại...",
-                category: "the-thao",
-                author: "Nguyễn Văn A",
-                date: "2025-06-01",
-                tags: ["bóng đá", "nations league", "ronaldo", "bồ đào nha", "tây ban nha", "chung kết"]
-            }
-        ];
+ // Dữ liệu mẫu cho tìm kiếm
+const sampleData = [
+    {
+        id: 1,
+        title: "Xu hướng thời trang mùa hè 2025 cho giới trẻ",
+        summary: "Khám phá những xu hướng thời trang hot nhất dành cho giới trẻ trong mùa hè năm nay...",
+        category: "thoi-trang",
+        author: "Nguyễn Đức Anh",
+        date: "2025-05-29",
+        tags: ["thời trang", "mùa hè", "giới trẻ", "xu hướng", "phong cách"]
+    },
+    {
+        id: 2,
+        title: "Top 10 địa điểm du lịch hot nhất cho gen Z",
+        summary: "Những điểm đến được giới trẻ yêu thích nhất trong năm 2025...",
+        category: "du-lich",
+        author: "Đỗ Đức Duy",
+        date: "2025-05-20",
+        tags: ["du lịch", "gen Z", "địa điểm", "trải nghiệm", "Phú Quốc"]
+    },
+    {
+        id: 3,
+        title: "Công nghệ AI và tương lai nghề nghiệp cho giới trẻ",
+        summary: "Khám phá tác động của trí tuệ nhân tạo (AI) đến thị trường việc làm và những kỹ năng cần thiết cho giới trẻ trong kỷ nguyên số...",
+        category: "cong-nghe",
+        author: "Phạm Gia Khiêm",
+        date: "2025-05-17",
+        tags: ["công nghệ", "AI", "nghề nghiệp", "tương lai", "kỹ năng"]
+    },
+    {
+        id: 4,
+        title: "Jack97 sau 2 năm im lặng bất ngờ có động thái nổi bật",
+        summary: "Tổng hợp những thông tin đính chính từ phía J97 về các vấn đề được dư luận quan tâm...",
+        category: "giai-tri",
+        author: "Nguyễn Minh Tuấn",
+        date: "2025-05-23",
+        tags: ["Jack97", "scandal", "giải trí", "âm nhạc", "nghệ sĩ"]
+    },
+    {
+        id: 5,
+        title: "Nguyễn Nam Long - Thần đồng 12 tuổi với tài năng xuất chúng",
+        summary: "Khám phá câu chuyện về cậu bé Nguyễn Nam Long - thần đồng 12 tuổi với những thành tích đáng kinh ngạc trong lĩnh vực toán học và lập trình.",
+        category: "cong-nghe", 
+        author: "Phạm Thị Thắm",
+        date: "2025-05-25",
+        tags: ["thần đồng", "toán học", "lập trình","công nghệ", "tài năng", "thành tích"]
+    },
+    {
+        id: 6,
+        title: "Ronaldo lập kỷ lục mới, Bồ Đào Nha vô địch Nations League 2025",
+        summary: "Trận chiến Bồ Đào Nha đấu Tây Ban Nha, với tâm điểm là 'ông già gân' Cristiano Ronaldo 40 tuổi và măng non Lamine Yamal 17 tuổi...",
+        category: "the-thao",
+        author: "Trần Văn Minh",
+        date: "2025-05-30",
+        tags: ["bóng đá", "nations league","thể thao", "ronaldo", "bồ đào nha", "tây ban nha", "vô địch"]
+    }
+];
 
-        // Chuẩn hóa chuỗi để so sánh (loại bỏ dấu và chuyển thành chữ thường)
-        function normalizeString(str) {
-            return str.toLowerCase()
-                .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '') // Loại bỏ dấu
-                .replace(/đ/g, 'd')
-                .replace(/Đ/g, 'D');
+// Chuẩn hóa chuỗi để so sánh (loại bỏ dấu và chuyển thành chữ thường)
+function normalizeString(str) {
+    return str.toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Loại bỏ dấu
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'D');
+}
+
+// Kiểm tra tính hợp lệ của biểu mẫu tìm kiếm
+function validateSearchForm() {
+    let isValid = true;
+    
+    // Xóa các thông báo lỗi trước đó
+    document.querySelectorAll('.error-message').forEach(error => {
+        error.style.display = 'none';
+        error.textContent = '';
+    });
+
+    // Kiểm tra từ khóa
+    const keyword = document.getElementById('keyword').value.trim();
+    if (keyword.length > 0 && keyword.length < 2) {
+        showError('keyword-error', 'Từ khóa phải có ít nhất 2 ký tự');
+        isValid = false;
+    }
+
+    // Kiểm tra khoảng thời gian
+    const dateFrom = document.getElementById('date-from').value;
+    const dateTo = document.getElementById('date-to').value;
+    
+    if (dateFrom && dateTo && new Date(dateFrom) > new Date(dateTo)) {
+        showError('date-error', 'Ngày bắt đầu không thể sau ngày kết thúc');
+        isValid = false;
+    }
+
+    // Kiểm tra ít nhất một tiêu chí tìm kiếm
+    const category = document.getElementById('category').value;
+    const author = document.getElementById('author').value.trim();
+    
+    if (!keyword && !category && !author && !dateFrom && !dateTo) {
+        showError('keyword-error', 'Vui lòng nhập ít nhất một tiêu chí tìm kiếm');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+// Hiển thị thông báo lỗi
+function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+}
+
+// Chức năng tìm kiếm - ĐÃ SỬA LỔI
+function performSearch() {
+    if (!validateSearchForm()) {
+        return;
+    }
+
+    const keyword = document.getElementById('keyword').value.trim();
+    const normalizedKeyword = normalizeString(keyword);
+    const category = document.getElementById('category').value;
+    const dateFrom = document.getElementById('date-from').value;
+    const dateTo = document.getElementById('date-to').value;
+    const author = document.getElementById('author').value.trim();
+    const normalizedAuthor = normalizeString(author);
+    const sortBy = document.getElementById('sort-by').value;
+
+    // BỎ DÒNG NÀY VÌ KHÔNG CÓ ELEMENT 'tags' TRONG HTML
+    // const tags = document.getElementById('tags').value.trim()
+    //     .split(',')
+    //     .map(tag => normalizeString(tag.trim()))
+    //     .filter(tag => tag.length > 0);
+
+    console.log('Tìm kiếm với từ khóa:', keyword);
+    console.log('Từ khóa đã chuẩn hóa:', normalizedKeyword);
+
+    // Lọc kết quả
+    let results = sampleData.filter(item => {
+        let matches = true;
+
+        // Tìm kiếm theo từ khóa trong tiêu đề, tóm tắt và tags
+        if (keyword && normalizedKeyword) {
+            const normalizedTitle = normalizeString(item.title);
+            const normalizedSummary = normalizeString(item.summary);
+            
+            // Tìm kiếm trong tags
+            const normalizedTags = item.tags.map(tag => normalizeString(tag));
+            const foundInTags = normalizedTags.some(tag => 
+                tag.includes(normalizedKeyword) || normalizedKeyword.includes(tag)
+            );
+            
+            if (!normalizedTitle.includes(normalizedKeyword) && 
+                !normalizedSummary.includes(normalizedKeyword) &&
+                !foundInTags) {
+                matches = false;
+            }
         }
 
-        // Kiểm tra tính hợp lệ của biểu mẫu tìm kiếm
-        function validateSearchForm() {
-            let isValid = true;
-            
-            // Xóa các thông báo lỗi trước đó
-            document.querySelectorAll('.error-message').forEach(error => {
-                error.style.display = 'none';
-                error.textContent = '';
-            });
-
-            // Kiểm tra từ khóa
-            const keyword = document.getElementById('keyword').value.trim();
-            if (keyword.length > 0 && keyword.length < 2) {
-                showError('keyword-error', 'Từ khóa phải có ít nhất 2 ký tự');
-                isValid = false;
-            }
-
-            // Kiểm tra khoảng thời gian
-            const dateFrom = document.getElementById('date-from').value;
-            const dateTo = document.getElementById('date-to').value;
-            
-            if (dateFrom && dateTo && new Date(dateFrom) > new Date(dateTo)) {
-                showError('date-error', 'Ngày bắt đầu không thể sau ngày kết thúc');
-                isValid = false;
-            }
-
-            // Kiểm tra ít nhất một tiêu chí tìm kiếm
-            const category = document.getElementById('category').value;
-            const author = document.getElementById('author').value.trim();
-            
-            if (!keyword && !category && !author && !dateFrom && !dateTo) {
-                showError('keyword-error', 'Vui lòng nhập ít nhất một tiêu chí tìm kiếm');
-                isValid = false;
-            }
-
-            return isValid;
+        if (category && item.category !== category) {
+            matches = false;
         }
 
-        // Hiển thị thông báo lỗi
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-        }
-
-        // Chức năng tìm kiếm
-        function performSearch() {
-            if (!validateSearchForm()) {
-                return;
+        if (author && normalizedAuthor) {
+            const normalizedItemAuthor = normalizeString(item.author);
+            if (!normalizedItemAuthor.includes(normalizedAuthor)) {
+                matches = false;
             }
-
-            // Sửa lỗi: Không loại bỏ ký tự tiếng Việt, chỉ chuẩn hóa để so sánh
-            const keyword = document.getElementById('keyword').value.trim();
-            const normalizedKeyword = normalizeString(keyword);
-            
-            const category = document.getElementById('category').value;
-            const dateFrom = document.getElementById('date-from').value;
-            const dateTo = document.getElementById('date-to').value;
-            const author = document.getElementById('author').value.trim();
-            const normalizedAuthor = normalizeString(author);
-            const sortBy = document.getElementById('sort-by').value;
-
-            console.log('Tìm kiếm với từ khóa:', keyword);
-            console.log('Từ khóa đã chuẩn hóa:', normalizedKeyword);
-
-            // Lọc kết quả
-            let results = sampleData.filter(item => {
-                let matches = true;
-
-                if (keyword && normalizedKeyword) {
-                    const normalizedTitle = normalizeString(item.title);
-                    const normalizedSummary = normalizeString(item.summary);
-                    
-                    if (!normalizedTitle.includes(normalizedKeyword) && 
-                        !normalizedSummary.includes(normalizedKeyword)) {
-                        matches = false;
-                    }
-                }
-
-                if (category && item.category !== category) {
-                    matches = false;
-                }
-
-                if (author && normalizedAuthor) {
-                    const normalizedItemAuthor = normalizeString(item.author);
-                    if (!normalizedItemAuthor.includes(normalizedAuthor)) {
-                        matches = false;
-                    }
-                }
-
-                if (dateFrom && item.date < dateFrom) {
-                    matches = false;
-                }
-
-                if (dateTo && item.date > dateTo) {
-                    matches = false;
-                }
-
-                return matches;
-            });
-
-            // Sắp xếp kết quả
-            results.sort((a, b) => {
-                switch (sortBy) {
-                    case 'date-desc':
-                        return new Date(b.date) - new Date(a.date);
-                    case 'date-asc':
-                        return new Date(a.date) - new Date(b.date);
-                    case 'title-asc':
-                        return a.title.localeCompare(b.title, 'vi');
-                    case 'title-desc':
-                        return b.title.localeCompare(a.title, 'vi');
-                    default:
-                        return 0;
-                }
-            });
-
-            console.log('Kết quả tìm kiếm:', results);
-
-            displayResults(results);
         }
 
-        // Hiển thị kết quả tìm kiếm
-        function displayResults(results) {
-            const resultsContainer = document.getElementById('results-container');
-            const resultsCount = document.getElementById('results-count');
-            const searchResults = document.getElementById('search-results');
-            
-            resultsCount.textContent = results.length;
-            searchResults.style.display = 'block';
-
-            if (results.length === 0) {
-                resultsContainer.innerHTML = '<div class="no-results">Không tìm thấy kết quả nào phù hợp với tiêu chí tìm kiếm.</div>';
-                return;
-            }
-
-            resultsContainer.innerHTML = results.map(item => `
-                <div class="result-item">
-                    <a href="detail.html?id=${item.id}" class="result-title">${item.title}</a>
-                    <div class="result-summary">${item.summary}</div>
-                    <div class="result-meta">
-                        Tác giả: ${item.author} | Ngày đăng: ${formatDate(item.date)} | Danh mục: ${getCategoryName(item.category)}
-                    </div>
-                </div>
-            `).join('');
+        if (dateFrom && item.date < dateFrom) {
+            matches = false;
         }
 
-        // Định dạng ngày
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('vi-VN');
+        if (dateTo && item.date > dateTo) {
+            matches = false;
         }
 
-        // Lấy tên danh mục
-        function getCategoryName(categoryValue) {
-            const categories = {
-                'the-thao': 'Thể thao',
-                'cong-nghe': 'Công nghệ',
-                'tin-nong': 'Tin Nóng',
-                'du-lich': 'Du lịch',
-                'the-thao': 'Thể thao',
-                'thoi-trang': 'Thời trang',
-                'cong-nghe':'Công nghệ'
-            };
-            return categories[categoryValue] || categoryValue;
+        return matches;
+    });
+
+    // Sắp xếp kết quả
+    results.sort((a, b) => {
+        switch (sortBy) {
+            case 'date-desc':
+                return new Date(b.date) - new Date(a.date);
+            case 'date-asc':
+                return new Date(a.date) - new Date(b.date);
+            case 'title-asc':
+                return a.title.localeCompare(b.title, 'vi');
+            case 'title-desc':
+                return b.title.localeCompare(a.title, 'vi');
+            default:
+                return 0;
         }
+    });
 
-        // Lắng nghe sự kiện
-        document.getElementById('search-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            performSearch();
-        });
+    console.log('Kết quả tìm kiếm:', results);
 
-        document.getElementById('reset-btn').addEventListener('click', function() {
-            document.getElementById('search-form').reset();
-            document.getElementById('search-results').style.display = 'none';
-            document.querySelectorAll('.error-message').forEach(error => {
-                error.style.display = 'none';
-            });
-        });
+    displayResults(results);
+}
 
-        // Kiểm tra từ khóa theo thời gian thực
-        document.getElementById('keyword').addEventListener('input', function() {
-            const keyword = this.value.trim();
-            const errorElement = document.getElementById('keyword-error');
-            
-            if (keyword.length > 0 && keyword.length < 2) {
-                showError('keyword-error', 'Từ khóa phải có ít nhất 2 ký tự');
-            } else {
-                errorElement.style.display = 'none';
-            }
-        });
+// Hiển thị kết quả tìm kiếm
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results-container');
+    const resultsCount = document.getElementById('results-count');
+    const searchResults = document.getElementById('search-results');
+    
+    resultsCount.textContent = results.length;
+    searchResults.style.display = 'block';
 
-        // Kiểm tra ngày
-        document.getElementById('date-to').addEventListener('change', function() {
-            const dateFrom = document.getElementById('date-from').value;
-            const dateTo = this.value;
-            
-            if (dateFrom && dateTo && new Date(dateFrom) > new Date(dateTo)) {
-                showError('date-error', 'Ngày bắt đầu không thể sau ngày kết thúc');
-            } else {
-                document.getElementById('date-error').style.display = 'none';
-            }
-        });
+    if (results.length === 0) {
+        resultsContainer.innerHTML = '<div class="no-results">Không tìm thấy kết quả nào phù hợp với tiêu chí tìm kiếm.</div>';
+        return;
+    }
+
+    resultsContainer.innerHTML = results.map(item => `
+        <div class="result-item">
+            <a href="danhmuctintuc/${getArticleFileName(item.id)}" class="result-title">${item.title}</a>
+            <div class="result-summary">${item.summary}</div>
+            <div class="result-meta">
+                Tác giả: ${item.author} | Ngày đăng: ${formatDate(item.date)} | Danh mục: ${getCategoryName(item.category)}
+            </div>
+        </div>
+    `).join('');
+}
+
+// Định dạng ngày
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('vi-VN');
+}
+
+// Lấy tên danh mục - ĐÃ SỬA LỔI
+function getCategoryName(categoryValue) {
+    const categories = {
+        'giai-tri': 'Giải trí',
+        'the-thao': 'Thể thao',
+        'cong-nghe': 'Công nghệ',
+        'du-lich': 'Du lịch',
+        'am-thuc': 'Ẩm thực',
+        'thoi-trang': 'Thời trang',
+    };
+    return categories[categoryValue] || categoryValue;
+}
+
+// Hàm lấy tên file bài viết dựa vào ID
+function getArticleFileName(id) {
+    const articleFiles = {
+        1: 'thoitranggioitre.html',
+        2: 'top10dddl.html',
+        3: 'tintucchitiet1.html',
+        4: 'jack97.html',
+        5: '12tuoi.html',
+        6: 'thethao.html'
+    };
+    return articleFiles[id] || 'detail.html';
+}
+
+// Lắng nghe sự kiện
+document.getElementById('search-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    performSearch();
+});
+
+document.getElementById('reset-btn').addEventListener('click', function() {
+    document.getElementById('search-form').reset();
+    document.getElementById('search-results').style.display = 'none';
+    document.querySelectorAll('.error-message').forEach(error => {
+        error.style.display = 'none';
+    });
+});
+
+// Kiểm tra từ khóa theo thời gian thực
+document.getElementById('keyword').addEventListener('input', function() {
+    const keyword = this.value.trim();
+    const errorElement = document.getElementById('keyword-error');
+    
+    if (keyword.length > 0 && keyword.length < 2) {
+        showError('keyword-error', 'Từ khóa phải có ít nhất 2 ký tự');
+    } else {
+        errorElement.style.display = 'none';
+    }
+});
+
+// Kiểm tra ngày
+document.getElementById('date-to').addEventListener('change', function() {
+    const dateFrom = document.getElementById('date-from').value;
+    const dateTo = this.value;
+    
+    if (dateFrom && dateTo && new Date(dateFrom) > new Date(dateTo)) {
+        showError('date-error', 'Ngày bắt đầu không thể sau ngày kết thúc');
+    } else {
+        document.getElementById('date-error').style.display = 'none';
+    }
+});
+
+document.getElementById('date-from').addEventListener('change', function() {
+    const dateFrom = this.value;
+    const dateTo = document.getElementById('date-to').value;
+    
+    if (dateFrom && dateTo && new Date(dateFrom) > new Date(dateTo)) {
+        showError('date-error', 'Ngày bắt đầu không thể sau ngày kết thúc');
+    } else {
+        document.getElementById('date-error').style.display = 'none';
+    }
+});
     </script>
 </body>
 </html>
